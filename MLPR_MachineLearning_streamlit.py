@@ -673,11 +673,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
 
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Argentina['Argentina'] = ss.inverse_transform(Argentina[['Argentina']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Argentina)), Argentina['Argentina'], label='Actual')
-        plt.plot(range(len(Argentina), len(Argentina) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Argentina with MLP Regression")
+        plt.plot(Argentina.index, Indonesia['Argentina'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
 
     elif model_selection == 'United Kingdom':
@@ -695,11 +710,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        United_Kingdom['United Kingdom'] = ss.inverse_transform(United_Kingdom[['United Kingdom']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(United_Kingdom)), United_Kingdom['United Kingdom'], label='Actual')
-        plt.plot(range(len(United_Kingdom), len(United_Kingdom) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for United Kingdom with MLP Regression")
+        plt.plot(United_Kingdom.index, United_Kingdom['United Kingdom'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Brazil':
@@ -717,11 +747,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
         
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Brazil['Brazil'] = ss.inverse_transform(Brazil[['Brazil']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Brazil)), Brazil['Brazil'], label='Actual')
-        plt.plot(range(len(Brazil), len(Brazil) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Brazil with MLP Regression")
+        plt.plot(Brazil.index, Brazil['Brazil'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Canada':
@@ -739,11 +784,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Canada['Canada'] = ss.inverse_transform(Canada[['Canada']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Canada)), Canada['Canada'], label='Actual')
-        plt.plot(range(len(Canada), len(Canada) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Canada with MLP Regression")
+        plt.plot(Canada.index, Canada['Canada'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
     elif model_selection == 'United States':
         model = model6
@@ -760,11 +820,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        United_States['United States'] = ss.inverse_transform(United_States[['United States']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(United_States)), United_States['United States'], label='Actual')
-        plt.plot(range(len(United_States), len(United_States) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for United States with MLP Regression")
+        plt.plot(United_States.index, United_States['United States'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Italy':
@@ -782,11 +857,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Italy['Italy'] = ss.inverse_transform(Italy[['Italy']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Italy)), Italy['Italy'], label='Actual')
-        plt.plot(range(len(Italy), len(Italy) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Italy with MLP Regression")
+        plt.plot(Italy.index, Italy['Italy'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'France':
@@ -804,11 +894,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        France['France'] = ss.inverse_transform(France[['France']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(France)), France['France'], label='Actual')
-        plt.plot(range(len(France), len(France) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for France with MLP Regression")
+        plt.plot(France.index, France['France'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Germany':
@@ -826,11 +931,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
         
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Germany['Germany'] = ss.inverse_transform(Germany[['Germany']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Germany)), Germany['Germany'], label='Actual')
-        plt.plot(range(len(Germany), len(Germany) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Germany with MLP Regression")
+        plt.plot(Germany.index, Germany['Germany'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'South Africa':
@@ -848,11 +968,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
         
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        South_Africa['South Africa'] = ss.inverse_transform(South_Africa[['South Africa']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(South_Africa)), South_Africa['South Africa'], label='Actual')
-        plt.plot(range(len(South_Africa), len(South_Africa) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for South Africa with MLP Regression")
+        plt.plot(South_Africa.index, South_Africa['South Africa'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Japan':
@@ -870,11 +1005,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
         
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Japan['Japan'] = ss.inverse_transform(Japan[['Japan']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Japan)), Japan['Japan'], label='Actual')
-        plt.plot(range(len(Japan), len(Japan) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Japan with MLP Regression")
+        plt.plot(Japan.index, Japan['Japan'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
     elif model_selection == 'Mexico':
         model = model12
@@ -891,11 +1041,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Mexico['Mexico'] = ss.inverse_transform(Mexico[['Mexico']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Mexico)), Mexico['Mexico'], label='Actual')
-        plt.plot(range(len(Mexico), len(Mexico) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Mexico with MLP Regression")
+        plt.plot(Mexico.index, Mexico['Mexico'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Saudi Arabia':
@@ -913,11 +1078,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Saudi_Arabia['Saudi Arabia'] = ss.inverse_transform(Saudi_Arabia[['Saudi Arabia']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Saudi_Arabia)), Saudi_Arabia['Saudi Arabia'], label='Actual')
-        plt.plot(range(len(Saudi_Arabia), len(Saudi_Arabia) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Saudi Arabia with MLP Regression")
+        plt.plot(Saudi_Arabia.index, Saudi_Arabia['Saudi Arabia'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Turkey':
@@ -935,11 +1115,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
         
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Turkey['Turkey'] = ss.inverse_transform(Turkey[['Turkey']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Turkey)), Turkey['Turkey'], label='Actual')
-        plt.plot(range(len(Turkey), len(Turkey) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Turkey with MLP Regression")
+        plt.plot(Turkey.index, Turkey['Turkey'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Australia':
@@ -957,11 +1152,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Australia['Australia'] = ss.inverse_transform(Australia[['Australia']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Australia)), Australia['Australia'], label='Actual')
-        plt.plot(range(len(Australia), len(Australia) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Australia with MLP Regression")
+        plt.plot(Australia.index, Australia['Australia'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'China':
@@ -979,11 +1189,26 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        China['China'] = ss.inverse_transform(China[['China']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(China)), China['China'], label='Actual')
-        plt.plot(range(len(China), len(China) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for China with MLP Regression")
+        plt.plot(China.index, China['China'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
         
     elif model_selection == 'India':
         model = model17
@@ -1000,17 +1225,34 @@ def make_predictions_and_plot(n_future_steps,model_selection):
             input_data.append(next_value)
             input_data.pop(0)
             
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        India['India'] = ss.inverse_transform(India[['India']])
+        
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(India)), India['India'], label='Actual')
-        plt.plot(range(len(India), len(India) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
+        plt.plot(India.index, India['India'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
         plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
     else:
         return
     
     return fig
 
 def main():
+    local_css("style.css")
+    
     st.title('Time Series Regression Model Deployment')
 
     st.header('Select Number of Years:')
@@ -1018,12 +1260,24 @@ def main():
 
     model_selection = st.selectbox('Select Country', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
-    if st.button('Make Prediction'):
-        result = make_predictions_and_plot(n_future_steps,model_selection)
-        st.success(f'The prediction is: ')
-        st.pyplot(result)
+    if 'button_clicked' not in st.session_state:
+        st.session_state.button_clicked = False
+
+    def make_prediction():
+        st.session_state.button_clicked = True
+
+    st.button('Make Prediction', on_click=make_prediction)
+
+    if st.session_state.button_clicked:
+        result = make_predictions_and_plot(n_future_steps, model_selection)
+        st.success('The prediction is:')
+        st.pyplot(result)   
         
-    
+    # if st.button('Make Prediction'):
+    # result = make_predictions_and_plot(n_future_steps,model_selection)
+    # st.success(f'The prediction is: ')
+    # st.pyplot(result)
+
 
 if __name__ == '__main__':
     main()
