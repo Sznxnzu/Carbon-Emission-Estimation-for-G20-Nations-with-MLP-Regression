@@ -1428,6 +1428,8 @@ def local_css(file_name):
 def main():
     local_css("style.css")
     
+    st.set_page_config(layout="wide")
+    
     st.title('Time Series Regression Model Deployment')
 
     # st.header('Select Number of Years:')
