@@ -1431,7 +1431,7 @@ def main():
     st.title('Time Series Regression Model Deployment')
 
     st.header('Select Number of Years:')
-    n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10)
+    n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
 
     model_selection = st.selectbox('Select Country', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
