@@ -1447,6 +1447,7 @@ def main():
     try:
         n_future_steps = int(n_future_steps)
         if n_future_steps < 1 or n_future_steps > 36:
+            error = 1
             st.error('Please enter a number between 1 and 36.')
     except ValueError:
         st.error('Please enter a valid number.')
@@ -1468,13 +1469,14 @@ def main():
     # st.pyplot(result)
 
     if st.session_state.button_clicked:
-        fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
-        st.success('The prediction is:')
-        st.pyplot(fig)   
+        if(error!=1):
+            fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
+            st.success('The prediction is:')
+            st.pyplot(fig)   
         
-        for ax in fig1.axes:
-            for line in ax.lines:
-                line.set_color('orange')
+            for ax in fig1.axes:
+                for line in ax.lines:
+                    line.set_color('orange')
         
         st.pyplot(fig1)
         
