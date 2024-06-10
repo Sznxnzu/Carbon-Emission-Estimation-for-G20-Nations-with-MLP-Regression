@@ -1439,16 +1439,16 @@ def main():
     
     # st.set_page_config(layout="wide")
     
-    # st.markdown(
-    #     """
-    #     <style>
-    #     .reportview-container .main .block-container {
-    #         max-width: 95%;
-    #     }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
+    st.markdown(
+        """
+        <style>
+        .reportview-container .main .block-container {
+            max-width: 95%;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     
     st.title('Time Series Regression Model Deployment')
 
