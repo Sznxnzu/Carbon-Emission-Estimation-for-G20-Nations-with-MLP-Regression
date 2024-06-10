@@ -1435,7 +1435,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 def main():
-    local_css("style.css")
+    # local_css("style.css")
     
     st.title('Time Series Regression Model Deployment')
 
