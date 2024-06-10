@@ -1430,8 +1430,15 @@ def main():
     
     st.title('Time Series Regression Model Deployment')
 
+    # st.header('Select Number of Years:')
+    # n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
+
     st.header('Select Number of Years:')
-    n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
+    n_future_steps = st.text_input('Enter the number of future steps:', value='10')
+    try:
+        n_future_steps = int(n_future_steps)
+    except ValueError:
+        st.error('Please enter a valid number.')
 
     model_selection = st.selectbox('Select Country', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
