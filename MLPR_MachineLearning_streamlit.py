@@ -1460,6 +1460,10 @@ def main():
 
     st.button('Make Prediction', on_click=make_prediction)
 
+    # if st.button('Make Prediction'):
+    # result = make_predictions_and_plot(n_future_steps,model_selection)
+    # st.success(f'The prediction is: ')
+    # st.pyplot(result)
 
     if st.session_state.button_clicked:
         fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
@@ -1472,11 +1476,6 @@ def main():
         
         st.pyplot(fig1)
         
-    # if st.button('Make Prediction'):
-    # result = make_predictions_and_plot(n_future_steps,model_selection)
-    # st.success(f'The prediction is: ')
-    # st.pyplot(result)
-
 
 if __name__ == '__main__':
     main()
