@@ -598,11 +598,8 @@ India.dropna(inplace=True)
 # ------------------------------------------------------------#
 
 
-<<<<<<< Updated upstream
 # --------------------Loading Models--------------------------#
-=======
 
->>>>>>> Stashed changes
 model1 = joblib.load('model_Indonesia.pkl')
 model2 = joblib.load('model_Argentina.pkl')
 model3 = joblib.load('model_United_Kingdom.pkl')
