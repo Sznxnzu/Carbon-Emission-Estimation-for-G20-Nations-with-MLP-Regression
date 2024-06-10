@@ -655,7 +655,18 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        # plt.close(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Argentina':
@@ -1249,6 +1260,10 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         return
     
     return fig
+
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 def main():
     local_css("style.css")
