@@ -1441,7 +1441,7 @@ def main():
 
     # st.header('Select Number of Years:')
     # n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
-
+    error = 0
     st.header('Enter the number of future steps to forecast:')
     n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
     try:
