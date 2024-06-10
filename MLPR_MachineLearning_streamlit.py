@@ -1440,7 +1440,8 @@ def main():
     except ValueError:
         st.error('Please enter a valid number.')
 
-    model_selection = st.selectbox('Select Country', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
+    st.header('Select country to forecast:')
+    model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
     if 'button_clicked' not in st.session_state:
         st.session_state.button_clicked = False
