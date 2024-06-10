@@ -598,7 +598,11 @@ India.dropna(inplace=True)
 # ------------------------------------------------------------#
 
 
+<<<<<<< Updated upstream
 # --------------------Loading Models--------------------------#
+=======
+
+>>>>>>> Stashed changes
 model1 = joblib.load('model_Indonesia.pkl')
 model2 = joblib.load('model_Argentina.pkl')
 model3 = joblib.load('model_United_Kingdom.pkl')
@@ -1090,6 +1094,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         
         return fig, fig1
 
+
         
     elif model_selection == 'Japan':
         model = model11
@@ -1137,6 +1142,8 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         
         return fig, fig1
 
+
+
     elif model_selection == 'Mexico':
         model = model12
         input_data = Mexico.iloc[-1, 1:].values.tolist()
@@ -1182,6 +1189,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.close(fig1)
         
         return fig, fig1
+
 
         
     elif model_selection == 'Saudi Arabia':
@@ -1230,6 +1238,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         
         return fig, fig1
 
+
         
     elif model_selection == 'Turkey':
         model = model14
@@ -1276,6 +1285,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.close(fig1)
         
         return fig, fig1
+
 
         
     elif model_selection == 'Australia':
@@ -1371,6 +1381,8 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         
         return fig, fig1
         
+        
+        
     elif model_selection == 'India':
         model = model17
         input_data = India.iloc[-1, 1:].values.tolist()
@@ -1461,6 +1473,11 @@ def main():
             fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
             st.success('The prediction is:')
             st.pyplot(fig)   
+            
+            for ax in fig1.axes:
+                for line in ax.lines:
+                    line.set_color('orange')
+            
             st.pyplot(fig1)
         
     # if st.button('Make Prediction'):
