@@ -1443,7 +1443,6 @@ def main():
         except ValueError:
             st.error('Please enter a valid number.')
 
-    with right_column:
         st.header('Select country to forecast:')
         model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
@@ -1455,11 +1454,12 @@ def main():
 
     st.button('Make Prediction', on_click=make_prediction)
 
-    if st.session_state.button_clicked:
-        fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
-        st.success('The prediction is:')
-        st.pyplot(fig)   
-        st.pyplot(fig1)
+    with right_column:
+        if st.session_state.button_clicked:
+            fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
+            st.success('The prediction is:')
+            st.pyplot(fig)   
+            st.pyplot(fig1)
         
     # if st.button('Make Prediction'):
     # result = make_predictions_and_plot(n_future_steps,model_selection)
