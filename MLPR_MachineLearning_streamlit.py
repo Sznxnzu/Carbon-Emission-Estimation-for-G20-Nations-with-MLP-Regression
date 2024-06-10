@@ -1437,36 +1437,20 @@ def local_css(file_name):
 def main():
     local_css("style.css")
     
-    # st.set_page_config(layout="wide")
-    
-    st.markdown(
-        """
-        <style>
-        .reportview-container .main .block-container {
-            max-width: 95%;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-    
     st.title('Time Series Regression Model Deployment')
 
     # st.header('Select Number of Years:')
     # n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
 
-    left_column, right_column = st.columns(2)
+    st.header('Enter the number of future steps to forecast:')
+    n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
+    try:
+        n_future_steps = int(n_future_steps)
+    except ValueError:
+        st.error('Please enter a valid number.')
 
-    with left_column:
-        st.header('Enter the number of future steps to forecast:')
-        n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
-        try:
-            n_future_steps = int(n_future_steps)
-        except ValueError:
-            st.error('Please enter a valid number.')
-
-        st.header('Select country to forecast:')
-        model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
+    st.header('Select country to forecast:')
+    model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
     if 'button_clicked' not in st.session_state:
         st.session_state.button_clicked = False
@@ -1476,17 +1460,17 @@ def main():
 
     st.button('Make Prediction', on_click=make_prediction)
 
-    with right_column:
-        if st.session_state.button_clicked:
-            fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
-            st.success('The prediction is:')
-            st.pyplot(fig)   
-            
-            for ax in fig1.axes:
-                for line in ax.lines:
-                    line.set_color('orange')
-            
-            st.pyplot(fig1)
+
+    if st.session_state.button_clicked:
+        fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
+        st.success('The prediction is:')
+        st.pyplot(fig)   
+        
+        for ax in fig1.axes:
+            for line in ax.lines:
+                line.set_color('orange')
+        
+        st.pyplot(fig1)
         
     # if st.button('Make Prediction'):
     # result = make_predictions_and_plot(n_future_steps,model_selection)
