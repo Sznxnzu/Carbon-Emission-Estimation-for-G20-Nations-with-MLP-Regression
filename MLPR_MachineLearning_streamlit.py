@@ -272,47 +272,7 @@ x_INA.rename(columns={'Emission Amount': 'India'}, inplace=True)
 x_INA.drop(columns='Month', inplace=True)
 trx_INA = x_INA.transpose()
 
-
-Ndf = pd.concat([trx_IND,trx_ARG,trx_ENG,trx_BRZ,trx_CAN,trx_USA,trx_ITA,trx_FRC,trx_GRM,trx_SAF,trx_JPN,trx_MXC,trx_ARB,trx_TUR,trx_AUS,trx_CHN,trx_INA], axis = 0)
-
-Ndf = Ndf.reset_index()
-Ndf.rename(columns={'index': 'Country'}, inplace=True)
-
-# ---------------------- PREPARING FOR STATIONARITY TEST -------------------------#
-
-Statestdf = Ndf.copy()
-Statestdf.drop(columns='Country',inplace=True)
-
-LIST_CarbonEmission = [x_IND,x_ARG,x_ENG,x_BRZ,x_CAN,x_USA,x_ITA,x_FRC,x_GRM,x_SAF,x_JPN,x_MXC,x_ARB,x_TUR,x_AUS,x_CHN,x_INA]
-
-test = Statestdf.copy()
-
-test = ss.fit_transform(test)
-test = pd.DataFrame(test)
-
-test = test.transpose()
-test = test.reset_index()
-test = test.rename(columns={test.columns[0]: 'Date'})
-
-base_date = pd.Timestamp('1990-12-01')
-test['Date'] = base_date + test.index.to_series().apply(lambda x: relativedelta(months=x))
-test.set_index('Date',inplace = True)
-
-new_column_names = ['Indonesia','Argentina','United Kingdom','Brazil','Canada','United States','Italy','France','Germany','South Africa','Japan','Mexico','Saudi Arabia','Turkey','Australia','China','India']
-test.rename(columns=dict(zip(test.columns, new_column_names)), inplace=True)
-
-max_shift = 5
-
-for country in test.columns:
-    if country != 'Date':
-        for shift_value in range(1, max_shift + 1):
-            new_column_name = f'{country}_Lag_{shift_value}'
-            test[new_column_name] = test[country].shift(shift_value)
-
-test.dropna(inplace=True)
-
-# ---------------------- ACTUAL DATA USED -------------------------#
-
+# ---------------------- Data 1 -------------------------#
 Indonesia = x_IND.copy()
 Indonesia = ss.fit_transform(Indonesia)
 Indonesia = pd.DataFrame(Indonesia)
@@ -327,14 +287,11 @@ Indonesia.set_index('Date',inplace = True)
 max_shift = 10
 Country_Name = 'Indonesia'
 
-IndonesiaY = Indonesia.copy()
-IndonesiaY = IndonesiaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Indonesia[new_column_name] = Indonesia[Country_Name].shift(shift_value)
 Indonesia.dropna(inplace=True)
-
+# ---------------------- Data 2 -------------------------#
 Argentina = x_ARG.copy()
 Argentina = ss.fit_transform(Argentina)
 Argentina = pd.DataFrame(Argentina)
@@ -349,14 +306,11 @@ Argentina.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Argentina'
 
-ArgentinaY = Argentina.copy()
-ArgentinaY = ArgentinaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Argentina[new_column_name] = Argentina[Country_Name].shift(shift_value)
 Argentina.dropna(inplace=True)
-
+# ---------------------- Data 3 -------------------------#
 United_Kingdom = x_ENG.copy()
 United_Kingdom = ss.fit_transform(United_Kingdom)
 United_Kingdom = pd.DataFrame(United_Kingdom)
@@ -371,14 +325,11 @@ United_Kingdom.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'United Kingdom'
 
-United_KingdomY = United_Kingdom.copy()
-United_KingdomY = United_KingdomY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     United_Kingdom[new_column_name] = United_Kingdom[Country_Name].shift(shift_value)
 United_Kingdom.dropna(inplace=True)
-
+# ---------------------- Data 4 -------------------------#
 Brazil = x_BRZ.copy()
 Brazil = ss.fit_transform(Brazil)
 Brazil = pd.DataFrame(Brazil)
@@ -393,14 +344,11 @@ Brazil.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'United Kingdom'
 
-BrazilY = Brazil.copy()
-BrazilY = BrazilY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Brazil[new_column_name] = Brazil[Country_Name].shift(shift_value)
 Brazil.dropna(inplace=True)
-
+# ---------------------- Data 5 -------------------------#
 Canada = x_CAN.copy()
 Canada = ss.fit_transform(Canada)
 Canada = pd.DataFrame(Canada)
@@ -415,14 +363,11 @@ Canada.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Canada'
 
-CanadaY = Canada.copy()
-CanadaY = CanadaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Canada[new_column_name] = Canada[Country_Name].shift(shift_value)
 Canada.dropna(inplace=True)
-
+# ---------------------- Data 6 -------------------------#
 Italy = x_ITA.copy()
 Italy = ss.fit_transform(Italy)
 Italy = pd.DataFrame(Italy)
@@ -437,14 +382,11 @@ Italy.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Italy'
 
-ItalyY = Italy.copy()
-ItalyY = ItalyY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Italy[new_column_name] = Italy[Country_Name].shift(shift_value)
 Italy.dropna(inplace=True)
-
+# ---------------------- Data 7 -------------------------#
 United_States = x_USA.copy()
 United_States = ss.fit_transform(United_States)
 United_States = pd.DataFrame(United_States)
@@ -459,14 +401,11 @@ United_States.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'United States'
 
-United_StatesY = United_States.copy()
-United_StatesY = United_StatesY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     United_States[new_column_name] = United_States[Country_Name].shift(shift_value)
 United_States.dropna(inplace=True)
-
+# ---------------------- Data 8 -------------------------#
 France = x_FRC.copy()
 France = ss.fit_transform(France)
 France = pd.DataFrame(France)
@@ -481,14 +420,11 @@ France.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'France'
 
-FranceY = France.copy()
-FranceY = FranceY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     France[new_column_name] = France[Country_Name].shift(shift_value)
 France.dropna(inplace=True)
-
+# ---------------------- Data 9 -------------------------#
 Germany = x_GRM.copy()
 Germany = ss.fit_transform(Germany)
 Germany = pd.DataFrame(Germany)
@@ -503,14 +439,11 @@ Germany.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Germany'
 
-GermanyY = Germany.copy()
-GermanyY = GermanyY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Germany[new_column_name] = Germany[Country_Name].shift(shift_value)
 Germany.dropna(inplace=True)
-
+# ---------------------- Data 10 -------------------------#
 South_Africa = x_SAF.copy()
 South_Africa = ss.fit_transform(South_Africa)
 South_Africa = pd.DataFrame(South_Africa)
@@ -525,14 +458,11 @@ South_Africa.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'South Africa'
 
-South_AfricaY = South_Africa.copy()
-South_AfricaY = South_AfricaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     South_Africa[new_column_name] = South_Africa[Country_Name].shift(shift_value)
 South_Africa.dropna(inplace=True)
-
+# ---------------------- Data 11 -------------------------#
 Japan = x_JPN.copy()
 Japan = ss.fit_transform(Japan)
 Japan = pd.DataFrame(Japan)
@@ -547,14 +477,11 @@ Japan.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Japan'
 
-JapanY = Japan.copy()
-JapanY = JapanY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Japan[new_column_name] = Japan[Country_Name].shift(shift_value)
 Japan.dropna(inplace=True)
-
+# ---------------------- Data 12 -------------------------#
 Mexico = x_MXC.copy()
 Mexico = ss.fit_transform(Mexico)
 Mexico = pd.DataFrame(Mexico)
@@ -569,14 +496,11 @@ Mexico.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Mexico'
 
-MexicoY = Mexico.copy()
-MexicoY = MexicoY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Mexico[new_column_name] = Mexico[Country_Name].shift(shift_value)
 Mexico.dropna(inplace=True)
-
+# ---------------------- Data 13 -------------------------#
 Saudi_Arabia = x_ARB.copy()
 Saudi_Arabia = ss.fit_transform(Saudi_Arabia)
 Saudi_Arabia = pd.DataFrame(Saudi_Arabia)
@@ -591,14 +515,11 @@ Saudi_Arabia.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Saudi Arabia'
 
-Saudi_ArabiaY = Saudi_Arabia.copy()
-Saudi_ArabiaY = Saudi_ArabiaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Saudi_Arabia[new_column_name] = Saudi_Arabia[Country_Name].shift(shift_value)
 Saudi_Arabia.dropna(inplace=True)
-
+# ---------------------- Data 14 -------------------------#
 Turkey = x_TUR.copy()
 Turkey = ss.fit_transform(Turkey)
 Turkey = pd.DataFrame(Turkey)
@@ -613,14 +534,11 @@ Turkey.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Turkey'
 
-TurkeyY = Turkey.copy()
-TurkeyY = TurkeyY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Turkey[new_column_name] = Turkey[Country_Name].shift(shift_value)
 Turkey.dropna(inplace=True)
-
+# ---------------------- Data 15 -------------------------#
 Australia = x_AUS.copy()
 Australia = ss.fit_transform(Australia)
 Australia = pd.DataFrame(Australia)
@@ -635,14 +553,11 @@ Australia.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'Australia'
 
-AustraliaY = Australia.copy()
-AustraliaY = AustraliaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     Australia[new_column_name] = Australia[Country_Name].shift(shift_value)
 Australia.dropna(inplace=True)
-
+# ---------------------- Data 16 -------------------------#
 China = x_CHN.copy()
 China = ss.fit_transform(China)
 China = pd.DataFrame(China)
@@ -657,14 +572,11 @@ China.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'China'
 
-ChinaY = China.copy()
-ChinaY = ChinaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     China[new_column_name] = China[Country_Name].shift(shift_value)
 China.dropna(inplace=True)
-
+# ---------------------- Data 17 -------------------------#
 India = x_INA.copy()
 India = ss.fit_transform(India)
 India = pd.DataFrame(India)
@@ -679,21 +591,14 @@ India.set_index('Date', inplace=True)
 max_shift = 10
 Country_Name = 'India'
 
-IndiaY = India.copy()
-IndiaY = IndiaY.iloc[max_shift:]
-
 for shift_value in range(1, max_shift + 1):
     new_column_name = f'Lag_{shift_value}'
     India[new_column_name] = India[Country_Name].shift(shift_value)
 India.dropna(inplace=True)
+# ------------------------------------------------------------#
 
 
-
-
-
-
-
-
+# --------------------Loading Models--------------------------#
 model1 = joblib.load('model_Indonesia.pkl')
 model2 = joblib.load('model_Argentina.pkl')
 model3 = joblib.load('model_United_Kingdom.pkl')
@@ -711,7 +616,7 @@ model14 = joblib.load('model_Turkey.pkl')
 model15 = joblib.load('model_Australia.pkl')
 model16 = joblib.load('model_China.pkl')
 model17 = joblib.load('model_India.pkl')
-
+# ------------------------------------------------------------#
 def make_predictions_and_plot(n_future_steps,model_selection):
     
     n_steps = n_future_steps
@@ -730,12 +635,27 @@ def make_predictions_and_plot(n_future_steps,model_selection):
 
             input_data.append(next_value)
             input_data.pop(0)
-            
-        fig = plt.figure(figsize=(10, 5))
-        plt.plot(range(len(Indonesia)), Indonesia['Indonesia'], label='Actual')
-        plt.plot(range(len(Indonesia), len(Indonesia) + n_future_steps), future_predictions, label='Future Predictions', linestyle='--')
-        plt.title("Future Forecasting for Indonesia with MLP Regression")
+        
+        future_predictions = pd.DataFrame(future_predictions)
+        future_predictions = future_predictions.reset_index()
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[0]: 'Date'})
+        future_predictions = future_predictions.rename(columns={future_predictions.columns[1]: 'future_predictions'})
+
+        base_date = pd.Timestamp('2018-1-01')
+        future_predictions['Date'] = base_date + future_predictions.index.to_series().apply(lambda x: relativedelta(months=x))
+        future_predictions.set_index('Date', inplace=True)
+
+        future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
+        Indonesia['Indonesia'] = ss.inverse_transform(Indonesia[['Indonesia']])
+        
+        plt.figure(figsize=(10, 5))
+        plt.plot(Indonesia.index, Indonesia['Indonesia'], label='Actual')
+        plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression")
         plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show()
 
         
     elif model_selection == 'Argentina':
