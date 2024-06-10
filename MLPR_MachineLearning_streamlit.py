@@ -1433,15 +1433,19 @@ def main():
     # st.header('Select Number of Years:')
     # n_future_steps = st.number_input('Enter the number of future steps:', min_value=1, max_value=100, value=10, step=1)
 
-    st.header('Enter the number of future steps to forecast:')
-    n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
-    try:
-        n_future_steps = int(n_future_steps)
-    except ValueError:
-        st.error('Please enter a valid number.')
+    left_column, right_column = st.columns(2)
 
-    st.header('Select country to forecast:')
-    model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
+    with left_column:
+        st.header('Enter the number of future steps to forecast:')
+        n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
+        try:
+            n_future_steps = int(n_future_steps)
+        except ValueError:
+            st.error('Please enter a valid number.')
+
+    with right_column:
+        st.header('Select country to forecast:')
+        model_selection = st.selectbox('17 Countries from G20 with the exception of : Russia, South Korea, and the European Union.', ['Indonesia', 'Argentina', 'United Kingdom', 'Brazil', 'Canada', 'United States', 'Italy', 'France', 'Germany', 'South Africa', 'Japan', 'Mexico', 'Saudi Arabia', 'Turkey', 'Australia', 'China', 'India'])
     
     if 'button_clicked' not in st.session_state:
         st.session_state.button_clicked = False
