@@ -1446,6 +1446,8 @@ def main():
     n_future_steps = st.text_input('The most optimal range is between 1 to 36 months, with 24  as the furthest point for prediction, in which the condition of the prediction is still optimal.', value='10')
     try:
         n_future_steps = int(n_future_steps)
+        if n_future_steps < 1 or n_future_steps > 36:
+            st.error('Please enter a number between 1 and 36.')
     except ValueError:
         st.error('Please enter a valid number.')
 
