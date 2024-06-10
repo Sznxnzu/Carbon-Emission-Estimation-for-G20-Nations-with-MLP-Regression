@@ -663,7 +663,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         plt.show()
@@ -712,7 +712,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -759,7 +759,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -806,7 +806,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -853,7 +853,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -899,7 +899,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -946,7 +946,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -993,7 +993,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1040,7 +1040,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1086,7 +1086,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1134,7 +1134,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1182,7 +1182,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1230,7 +1230,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1278,7 +1278,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1326,7 +1326,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1373,7 +1373,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
@@ -1421,7 +1421,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.title("Future Forecasting with MLP Regression (Predictions Only)")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
-        plt.xlabel('Year')
+        plt.xlabel('Date')
         plt.close(fig1)
         
         return fig, fig1
