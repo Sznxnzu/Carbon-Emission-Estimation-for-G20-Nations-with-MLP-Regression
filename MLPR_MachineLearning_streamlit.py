@@ -648,7 +648,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         future_predictions['future_predictions'] = ss.inverse_transform(future_predictions[['future_predictions']])
         Indonesia['Indonesia'] = ss.inverse_transform(Indonesia[['Indonesia']])
         
-        plt.figure(figsize=(10, 5))
+        fig = plt.figure(figsize=(10, 5))
         plt.plot(Indonesia.index, Indonesia['Indonesia'], label='Actual')
         plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
         plt.title("Future Forecasting with MLP Regression")
