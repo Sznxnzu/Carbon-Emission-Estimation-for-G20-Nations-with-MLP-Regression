@@ -655,7 +655,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -663,8 +663,9 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
-        # plt.close(fig1)
+        plt.close(fig1)
+        
+        plt.show()
         
         return fig, fig1
 
@@ -697,13 +698,23 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         Argentina['Argentina'] = ss.inverse_transform(Argentina[['Argentina']])
         
         fig = plt.figure(figsize=(10, 5))
-        plt.plot(Argentina.index, Indonesia['Argentina'], label='Actual')
+        plt.plot(Argentina.index, Argentina['Argentina'], label='Actual')
         plt.plot(future_predictions.index, future_predictions, label='Future Predictions', linestyle='--')
         plt.title("Future Forecasting with MLP Regression")
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
 
     elif model_selection == 'United Kingdom':
@@ -740,7 +751,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Brazil':
@@ -777,7 +798,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Canada':
@@ -814,7 +845,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
     elif model_selection == 'United States':
         model = model6
@@ -850,7 +891,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Italy':
@@ -887,7 +938,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'France':
@@ -924,7 +985,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Germany':
@@ -961,8 +1032,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
-
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
         
     elif model_selection == 'South Africa':
         model = model10
@@ -998,7 +1078,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Japan':
@@ -1035,7 +1125,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
     elif model_selection == 'Mexico':
         model = model12
@@ -1071,7 +1171,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Saudi Arabia':
@@ -1108,7 +1218,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Turkey':
@@ -1145,7 +1265,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'Australia':
@@ -1182,7 +1312,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
 
         
     elif model_selection == 'China':
@@ -1219,7 +1359,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
         
     elif model_selection == 'India':
         model = model17
@@ -1255,7 +1405,17 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show()
+        plt.show(fig)
+        
+        fig1 = plt.figure(figsize=(10, 5))
+        plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
+        plt.title("Future Forecasting with MLP Regression (Predictions Only)")
+        plt.legend()
+        plt.ylabel('Carbon Emission in MtCO₂e')
+        plt.xlabel('Year')
+        plt.show(fig1)
+        
+        return fig, fig1
     else:
         return
     
@@ -1284,9 +1444,10 @@ def main():
     st.button('Make Prediction', on_click=make_prediction)
 
     if st.session_state.button_clicked:
-        result = make_predictions_and_plot(n_future_steps, model_selection)
+        fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
         st.success('The prediction is:')
-        st.pyplot(result)   
+        st.pyplot(fig)   
+        st.pyplot(fig1)
         
     # if st.button('Make Prediction'):
     # result = make_predictions_and_plot(n_future_steps,model_selection)
