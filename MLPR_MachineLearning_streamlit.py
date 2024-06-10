@@ -704,7 +704,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -712,7 +712,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -751,7 +751,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -759,7 +759,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -798,7 +798,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -806,7 +806,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -845,7 +845,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -853,7 +853,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -891,7 +891,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -899,7 +899,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -938,7 +938,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -946,7 +946,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -985,7 +985,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -993,7 +993,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1032,7 +1032,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1040,7 +1040,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
         
@@ -1078,7 +1078,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1086,7 +1086,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1125,7 +1125,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1133,7 +1133,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1171,7 +1171,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1179,7 +1179,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1218,7 +1218,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1226,7 +1226,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1265,7 +1265,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1273,7 +1273,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1312,7 +1312,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1320,7 +1320,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
 
@@ -1359,7 +1359,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1367,7 +1367,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
         
@@ -1405,7 +1405,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig)
+        plt.close(fig)
         
         fig1 = plt.figure(figsize=(10, 5))
         plt.plot(future_predictions.index, future_predictions['future_predictions'], label='Future Predictions', linestyle='--')
@@ -1413,7 +1413,7 @@ def make_predictions_and_plot(n_future_steps,model_selection):
         plt.legend()
         plt.ylabel('Carbon Emission in MtCO₂e')
         plt.xlabel('Year')
-        plt.show(fig1)
+        plt.close(fig1)
         
         return fig, fig1
     else:
