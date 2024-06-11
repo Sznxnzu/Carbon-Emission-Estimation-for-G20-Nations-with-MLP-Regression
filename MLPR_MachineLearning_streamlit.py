@@ -1473,12 +1473,12 @@ def main():
             fig, fig1 = make_predictions_and_plot(n_future_steps, model_selection)
             st.success('The prediction is:')
             st.pyplot(fig)   
-            st.pyplot(fig1)
+            # st.pyplot(fig1)
             for ax in fig1.axes:
                 for line in ax.lines:
                     line.set_color('orange')
         
-            # st.pyplot(fig1)
+            st.pyplot(fig1)
         
 
 if __name__ == '__main__':
